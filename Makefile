@@ -1,5 +1,3 @@
-.PHONY: clean1
-
 TARGET = build/GTA_OHKO
 OBJS = src/exports/exports.o src/utils/patch.o src/utils/utils.o src/main.o
 	
@@ -18,6 +16,3 @@ LIBS = -lpspsystemctrl_user
 
 PSPSDK = $(shell psp-config --pspsdk-path)
 include $(PSPSDK)/lib/build_prx.mak
-
-clean1:
-	-rm *.o $(OBJS)
