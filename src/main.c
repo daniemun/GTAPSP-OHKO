@@ -48,8 +48,9 @@ int sceKernelSysClock2USecWidePatched(SceInt64 clock, unsigned *low, unsigned in
     pplayer_health = getFloat(pplayer + (LCS ? HEALTH_OFFSET_LCS : HEALTH_OFFSET_VCS)); // Get Health
     pplayer_armor = getFloat(pplayer + (LCS ? ARMOR_OFFSET_LCS : ARMOR_OFFSET_VCS)); // Get Armor
 
-    if (pplayer_health > 1.1f) // If health > 1.1f, set to 1.1f (less than 1.1f health = player dies)
-        setFloat(pplayer+(LCS ? HEALTH_OFFSET_LCS : HEALTH_OFFSET_VCS), 1.1f);
+    // Set player health to 2f, otherwise player may die randomly exiting a car (e.g.: after Bringing the House Down in LCS)
+    if (pplayer_health > 2.f) // If health > 2.f, set to 2.f
+        setFloat(pplayer+(LCS ? HEALTH_OFFSET_LCS : HEALTH_OFFSET_VCS), 2.f);
 
     if (pplayer_armor > 0.0f) // No armor :)
         setFloat(pplayer+(LCS ? ARMOR_OFFSET_LCS : ARMOR_OFFSET_VCS), 0.0f);

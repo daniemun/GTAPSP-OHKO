@@ -18,4 +18,4 @@
 
 // Plugin Current Version
 #define VERSION 1
-#define VERSION_MIN 0
+#define VERSION_MIN 1
